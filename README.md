@@ -1,11 +1,22 @@
-# Personal ToolBox
-# 
+# Jincan
+## _A funny toolbox !_
 
-A script with different tools !
+![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)
 
-Credits : 
-Although modified in some aspect the GUI is heavily inspired by Wanderson M. Pimenta
+This program is full of python tools ! Feel free to discover them !
+To run the program :
+```
+python main.py
+```
 
-Consider donating to him if you like his work https://gum.co/mHsRC
-Original GUI : https://github.com/Wanderson-Magalhaes/Modern_GUI_PyDracula_PySide6_or_PyQt6
-Presentation : https://youtu.be/9DnaHg4M_AM
+## Credits
+> Although modified in some aspect, the GUI is heavily inspired by **Wanderson M. Pimenta**'s PyDracula
+> Consider donating to him if you like his work : https://gum.co/mHsRC 
+> Original GUI : https://github.com/Wanderson-Magalhaes/Modern_GUI_PyDracula_PySide6_or_PyQt6 
+>Presentation : https://youtu.be/9DnaHg4M_AM
+
+
+## License
+
+MIT
+
