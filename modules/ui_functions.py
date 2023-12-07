@@ -131,20 +131,20 @@ class UIFunctions(MainWindow):
             standard = 0
 
             # GET BTN STYLE
-            #style = self.ui.toggleLeftBox.styleSheet()
+            #style = self.ui.btn_new.styleSheet()
 
             # SET MAX WIDTH
             if width == 0:
                 widthExtended = maxExtend
                 # SELECT BTN
-                # self.ui.toggleLeftBox.setStyleSheet(style + color)
+                #self.ui.btn_new.setStyleSheet(style + color)
                 # if widthRightBox != 0:
                 #     style = self.ui.settingsTopBtn.styleSheet()
                 #     self.ui.settingsTopBtn.setStyleSheet(style.replace(Settings.BTN_RIGHT_BOX_COLOR, ''))
             else:
                 widthExtended = standard
                 # RESET BTN
-                #self.ui.toggleLeftBox.setStyleSheet(style.replace(color, ''))
+                #self.ui.btn_new.setStyleSheet(style.replace(color, ''))
                 
         UIFunctions.start_box_animation(self, widthLeftBox, widthRightBox, "toolbox", width)
 
@@ -227,6 +227,20 @@ class UIFunctions(MainWindow):
         self.group.addAnimation(self.tool_box)
         self.group.addAnimation(self.right_box)
         self.group.start()
+    
+    def toolbox_close(self):
+        # ANIMATION TOOL BOX
+        if self.ui.toolBoxMenu.width() > 0:    
+            self.tool_box = QPropertyAnimation(self.ui.toolBoxMenu, b"minimumWidth")
+            self.tool_box.setDuration(Settings.TIME_ANIMATION)
+            self.tool_box.setStartValue(240)
+            self.tool_box.setEndValue(0)
+            self.tool_box.setEasingCurve(QEasingCurve.InOutQuart)
+
+            self.group = QParallelAnimationGroup()
+            self.group.addAnimation(self.tool_box)
+            self.group.start()
+
 
 
     # SELECT/DESELECT MENU
