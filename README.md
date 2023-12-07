@@ -11,8 +11,11 @@ python main.py
 
 ## Credits
 > Although modified in some aspect, the GUI is heavily inspired by **Wanderson M. Pimenta**'s PyDracula
-> Consider donating to him if you like his work : https://gum.co/mHsRC 
-> Original GUI : https://github.com/Wanderson-Magalhaes/Modern_GUI_PyDracula_PySide6_or_PyQt6 
+> 
+> Consider donating to him if you like his work : https://gum.co/mHsRC
+> 
+> Original GUI : https://github.com/Wanderson-Magalhaes/Modern_GUI_PyDracula_PySide6_or_PyQt6
+> 
 >Presentation : https://youtu.be/9DnaHg4M_AM
 
 
