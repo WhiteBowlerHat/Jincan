@@ -4,7 +4,12 @@
 ![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)
 
 This program is full of python tools ! Feel free to discover them !
-To run the program :
+To use the program, first install requirements :
+```
+pip install requirements.txt
+```
+
+Then run the program :
 ```
 python main.py
 ```
