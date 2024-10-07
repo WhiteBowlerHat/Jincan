@@ -17,12 +17,14 @@
 import sys
 import os
 import platform
+from moviepy.editor import VideoFileClip, AudioFileClip
 
 # IMPORT / GUI AND MODULES AND WIDGETS
 # ///////////////////////////////////////////////////////////////
 from modules import *
 from widgets import *
-from pytube import YouTube
+from pytubefix import YouTube
+from pytubefix.cli import on_progress
 os.environ["QT_FONT_DPI"] = "96" # FIX Problem for High DPI and Scale above 100%
 
 # SET AS GLOBAL WIDGETS
@@ -70,10 +72,15 @@ class MainWindow(QMainWindow):
         # LEFT MENUS
         widgets.btn_home.clicked.connect(self.buttonClick)
         widgets.btn_widgets.clicked.connect(self.buttonClick)
+        widgets.btn_tools.clicked.connect(self.buttonClick)
+        
+        widgets.btn_tool1_imgcrypt.clicked.connect(self.buttonClick)
         widgets.btn_tool2_ytbdl.clicked.connect(self.buttonClick)
+
+
         widgets.ytdlDownloadBtn.clicked.connect(self.buttonClick)
-        widgets.btn_new.clicked.connect(self.buttonClick)
-        widgets.btn_save.clicked.connect(self.buttonClick)
+        widgets.ytdlOpenFolderBtn.clicked.connect(self.buttonClick)
+        
 
 
         # EXTRA LEFT BOX
@@ -90,7 +97,7 @@ class MainWindow(QMainWindow):
         # EXTRA TOOL BOX
         def openCloseToolBox():
             UIFunctions.toggleToolBox(self, True)
-        widgets.btn_new.clicked.connect(openCloseToolBox)
+        widgets.btn_tools.clicked.connect(openCloseToolBox)
         widgets.toolBoxCloseColumnBtn.clicked.connect(openCloseToolBox)
         widgets.ytdlURLField.textChanged.connect(self.ytdl_text_change)
 
@@ -140,43 +147,95 @@ class MainWindow(QMainWindow):
             UIFunctions.toolbox_close(self)
 
         # SHOW NEW PAGE
-        if btnName == "btn_new":
+        if btnName == "btn_tools":
             #widgets.stackedWidget.setCurrentWidget(widgets.new_page) # SET PAGE
             UIFunctions.resetStyle(self, btnName) # RESET ANOTHERS BUTTONS SELECTED
             btn.setStyleSheet(UIFunctions.selectMenu(btn.styleSheet())) # SELECT MENU
 
-        if btnName == "btn_save":
-            print("Save BTN clicked!")
-
         if btnName == "btn_tool2_ytbdl":
             widgets.stackedWidget.setCurrentWidget(widgets.youtube_downloader)
         
+        if btnName == "btn_tool1_imgcrypt":
+            widgets.stackedWidget.setCurrentWidget(widgets.fog_project)
+
+        if btnName == "ytdlOpenFolderBtn":
+            folder_path = QFileDialog.getExistingDirectory(self, "Select Input Folder")
+            if folder_path:
+                widgets.ytdlOutFolderLabel.setText(folder_path)
+
+                
         if btnName == "ytdlDownloadBtn":         
             url = widgets.ytdlURLField.text()
-            yt = YouTube(url)
+            yt = YouTube(url, on_progress_callback = on_progress)
+            path = widgets.ytdlOutFolderLabel.text()
+            itag = widgets.ytdlAvailResList.currentData()
 
-            video=yt.streams.get_highest_resolution()
-            output = ""
+            print(path)
 
-            video.download(output)     
+           
+            if os.path.isdir(path):
+                    output_path = path
+            else:
+                output_path="."
+
+            video=yt.streams.get_by_itag(itag)
+
+            if video.is_progressive == False:
+                audio=yt.streams.filter(only_audio=True)[0]
+                audio.download(output_path, filename="tmp_aud.mp4")
+                video.download(output_path, filename="tmp_vid.mp4")
+                
+                video_clip = VideoFileClip(output_path+"/tmp_vid.mp4")
+                audio_clip = AudioFileClip(output_path+"/tmp_aud.mp4")
+                # Set the audio of the video clip
+                final_video = video_clip.set_audio(audio_clip)
+
+                # Write the final video to file
+                final_video.write_videofile(output_path+"/"+video.title+".mp4", codec="libx264", audio_codec="aac")
+                os.remove(output_path+"/tmp_vid.mp4")
+                os.remove(output_path+"/tmp_aud.mp4")
+            else:          
+                video.download(output_path)     
 
         # PRINT BTN NAME
         print(f'Button "{btnName}" pressed!')
 
     def ytdl_text_change(self):
-        url = widgets.ytdlURLField.text()
-        yt = YouTube(url)
-        size = yt.streams.get_highest_resolution().filesize_mb
-        res = ', '.join([stream.resolution for stream in yt.streams.filter(progressive=True).all()])
-        title = yt.title
-        author = yt.author
-        descr = yt.description
+            url = widgets.ytdlURLField.text()
+        #try:
+            yt = YouTube(url)
+            size=""
+            res =""
+            for s in yt.streams.filter(type="video"):
+                res+=str(s.resolution)+" | "
+                size+=str(s.filesize_mb)+"MB | "
+            #size = yt.streams.get_highest_resolution().filesize_mb
+            
+            title = yt.title
+            author = yt.author
+            descr = yt.description
 
-        widgets.ytdlTitleLabel.setText(title)
-        widgets.ytdlChannelLabel.setText(author)
-        widgets.ytdlSizeLabel.setText(str(size)+"MB")
-        widgets.ytdlDescriptionLabel.setPlainText(descr)
-        widgets.ytdlResolutionLabel.setText(res)
+            widgets.ytdlTitleLabel.setText(title)
+            widgets.ytdlChannelLabel.setText(author)
+            widgets.ytdlSizeLabel.setText(str(size)+"MB")
+            widgets.ytdlDescriptionLabel.setPlainText(descr)
+            widgets.ytdlResolutionLabel.setText(res)
+            widgets.ytdlAvailResList.clear()
+            for s in yt.streams.filter(mime_type="video/mp4"):
+                if s.is_progressive == True:
+                    widgets.ytdlAvailResList.addItem(s.resolution+"("+str(s.filesize_mb)+"MB) Fast", s.itag)
+                else :
+                    widgets.ytdlAvailResList.addItem(s.resolution+"("+str(s.filesize_mb)+"MB) Slow", s.itag)
+            print(yt.streams)
+        # except:
+        #     widgets.ytdlTitleLabel.setText("None")
+        #     widgets.ytdlChannelLabel.setText("None")
+        #     widgets.ytdlSizeLabel.setText("None")
+        #     widgets.ytdlDescriptionLabel.setPlainText("None")
+        #     widgets.ytdlResolutionLabel.setText("None")
+
+            
+        
 
     # RESIZE EVENTS
     # ///////////////////////////////////////////////////////////////

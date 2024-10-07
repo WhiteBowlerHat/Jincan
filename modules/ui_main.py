@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'mainzmCbbK.ui'
+## Form generated from reading UI file 'main.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.3
+## Created by: Qt User Interface Compiler version 6.6.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -17,11 +17,11 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractItemView, QAbstractScrollArea, QApplication, QCheckBox,
     QComboBox, QCommandLinkButton, QFrame, QGridLayout,
-    QHBoxLayout, QHeaderView, QLabel, QLineEdit,
-    QMainWindow, QPlainTextEdit, QPushButton, QRadioButton,
-    QScrollArea, QScrollBar, QSizePolicy, QSlider,
-    QStackedWidget, QTableWidget, QTableWidgetItem, QTextEdit,
-    QVBoxLayout, QWidget)
+    QGroupBox, QHBoxLayout, QHeaderView, QLabel,
+    QLineEdit, QMainWindow, QPlainTextEdit, QPushButton,
+    QRadioButton, QScrollArea, QScrollBar, QSizePolicy,
+    QSlider, QSplitter, QStackedWidget, QTableWidget,
+    QTableWidgetItem, QTextEdit, QVBoxLayout, QWidget)
 import resources_rc
 
 class Ui_MainWindow(object):
@@ -560,8 +560,8 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
-        self.horizontalLayout_6 = QHBoxLayout(self.styleSheet)
-        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.verticalLayout_22 = QVBoxLayout(self.styleSheet)
+        self.verticalLayout_22.setObjectName(u"verticalLayout_22")
         self.bgApp = QFrame(self.styleSheet)
         self.bgApp.setObjectName(u"bgApp")
         self.bgApp.setStyleSheet(u"")
@@ -686,41 +686,17 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_8.addWidget(self.btn_widgets)
 
-        self.btn_new = QPushButton(self.topMenu)
-        self.btn_new.setObjectName(u"btn_new")
-        sizePolicy.setHeightForWidth(self.btn_new.sizePolicy().hasHeightForWidth())
-        self.btn_new.setSizePolicy(sizePolicy)
-        self.btn_new.setMinimumSize(QSize(0, 45))
-        self.btn_new.setFont(font)
-        self.btn_new.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_new.setLayoutDirection(Qt.LeftToRight)
-        self.btn_new.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-file.png);")
+        self.btn_tools = QPushButton(self.topMenu)
+        self.btn_tools.setObjectName(u"btn_tools")
+        sizePolicy.setHeightForWidth(self.btn_tools.sizePolicy().hasHeightForWidth())
+        self.btn_tools.setSizePolicy(sizePolicy)
+        self.btn_tools.setMinimumSize(QSize(0, 45))
+        self.btn_tools.setFont(font)
+        self.btn_tools.setCursor(QCursor(Qt.PointingHandCursor))
+        self.btn_tools.setLayoutDirection(Qt.LeftToRight)
+        self.btn_tools.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-layers.png);")
 
-        self.verticalLayout_8.addWidget(self.btn_new)
-
-        self.btn_save = QPushButton(self.topMenu)
-        self.btn_save.setObjectName(u"btn_save")
-        sizePolicy.setHeightForWidth(self.btn_save.sizePolicy().hasHeightForWidth())
-        self.btn_save.setSizePolicy(sizePolicy)
-        self.btn_save.setMinimumSize(QSize(0, 45))
-        self.btn_save.setFont(font)
-        self.btn_save.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_save.setLayoutDirection(Qt.LeftToRight)
-        self.btn_save.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-save.png)")
-
-        self.verticalLayout_8.addWidget(self.btn_save)
-
-        self.btn_exit = QPushButton(self.topMenu)
-        self.btn_exit.setObjectName(u"btn_exit")
-        sizePolicy.setHeightForWidth(self.btn_exit.sizePolicy().hasHeightForWidth())
-        self.btn_exit.setSizePolicy(sizePolicy)
-        self.btn_exit.setMinimumSize(QSize(0, 45))
-        self.btn_exit.setFont(font)
-        self.btn_exit.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btn_exit.setLayoutDirection(Qt.LeftToRight)
-        self.btn_exit.setStyleSheet(u"background-image: url(:/icons/images/icons/cil-x.png);")
-
-        self.verticalLayout_8.addWidget(self.btn_exit)
+        self.verticalLayout_8.addWidget(self.btn_tools)
 
 
         self.verticalMenuLayout.addWidget(self.topMenu, 0, Qt.AlignTop)
@@ -1539,6 +1515,211 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.row_3)
 
         self.stackedWidget.addWidget(self.widgets)
+        self.fog_project = QWidget()
+        self.fog_project.setObjectName(u"fog_project")
+        self.verticalLayout_23 = QVBoxLayout(self.fog_project)
+        self.verticalLayout_23.setObjectName(u"verticalLayout_23")
+        self.frame_6 = QFrame(self.fog_project)
+        self.frame_6.setObjectName(u"frame_6")
+        self.frame_6.setMaximumSize(QSize(16777215, 100))
+        self.frame_6.setFrameShape(QFrame.StyledPanel)
+        self.frame_6.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_7 = QHBoxLayout(self.frame_6)
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.label_7 = QLabel(self.frame_6)
+        self.label_7.setObjectName(u"label_7")
+        font5 = QFont()
+        font5.setFamilies([u"Segoe UI"])
+        font5.setBold(False)
+        font5.setItalic(False)
+        self.label_7.setFont(font5)
+        self.label_7.setStyleSheet(u"font-size: 50px;")
+
+        self.horizontalLayout_7.addWidget(self.label_7, 0, Qt.AlignHCenter)
+
+
+        self.verticalLayout_23.addWidget(self.frame_6)
+
+        self.frame_8 = QFrame(self.fog_project)
+        self.frame_8.setObjectName(u"frame_8")
+        self.frame_8.setFrameShape(QFrame.StyledPanel)
+        self.frame_8.setFrameShadow(QFrame.Raised)
+        self.horizontalLayout_6 = QHBoxLayout(self.frame_8)
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.FPencryptionBox = QGroupBox(self.frame_8)
+        self.FPencryptionBox.setObjectName(u"FPencryptionBox")
+        self.verticalLayout_24 = QVBoxLayout(self.FPencryptionBox)
+        self.verticalLayout_24.setObjectName(u"verticalLayout_24")
+        self.frame_7 = QFrame(self.FPencryptionBox)
+        self.frame_7.setObjectName(u"frame_7")
+        self.frame_7.setFrameShape(QFrame.StyledPanel)
+        self.frame_7.setFrameShadow(QFrame.Raised)
+        self.splitter = QSplitter(self.frame_7)
+        self.splitter.setObjectName(u"splitter")
+        self.splitter.setGeometry(QRect(70, 30, 341, 180))
+        self.splitter.setOrientation(Qt.Vertical)
+        self.layoutWidget = QWidget(self.splitter)
+        self.layoutWidget.setObjectName(u"layoutWidget")
+        self.gridLayout_4 = QGridLayout(self.layoutWidget)
+        self.gridLayout_4.setObjectName(u"gridLayout_4")
+        self.gridLayout_4.setContentsMargins(0, 0, 0, 0)
+        self.textEdit_12 = QTextEdit(self.layoutWidget)
+        self.textEdit_12.setObjectName(u"textEdit_12")
+        self.textEdit_12.setMaximumSize(QSize(16777215, 30))
+
+        self.gridLayout_4.addWidget(self.textEdit_12, 2, 0, 1, 1)
+
+        self.label_10 = QLabel(self.layoutWidget)
+        self.label_10.setObjectName(u"label_10")
+        self.label_10.setMaximumSize(QSize(16777215, 30))
+
+        self.gridLayout_4.addWidget(self.label_10, 1, 0, 1, 1)
+
+        self.splitter.addWidget(self.layoutWidget)
+        self.layoutWidget1 = QWidget(self.splitter)
+        self.layoutWidget1.setObjectName(u"layoutWidget1")
+        self.gridLayout_3 = QGridLayout(self.layoutWidget1)
+        self.gridLayout_3.setObjectName(u"gridLayout_3")
+        self.gridLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.pushButton_10 = QPushButton(self.layoutWidget1)
+        self.pushButton_10.setObjectName(u"pushButton_10")
+        self.pushButton_10.setMaximumSize(QSize(16777215, 30))
+
+        self.gridLayout_3.addWidget(self.pushButton_10, 0, 0, 1, 1)
+
+        self.textEdit_9 = QTextEdit(self.layoutWidget1)
+        self.textEdit_9.setObjectName(u"textEdit_9")
+        self.textEdit_9.setMaximumSize(QSize(16777215, 30))
+
+        self.gridLayout_3.addWidget(self.textEdit_9, 0, 1, 1, 1)
+
+        self.pushButton_8 = QPushButton(self.layoutWidget1)
+        self.pushButton_8.setObjectName(u"pushButton_8")
+
+        self.gridLayout_3.addWidget(self.pushButton_8, 1, 0, 1, 1)
+
+        self.textEdit_10 = QTextEdit(self.layoutWidget1)
+        self.textEdit_10.setObjectName(u"textEdit_10")
+        self.textEdit_10.setMaximumSize(QSize(16777215, 30))
+
+        self.gridLayout_3.addWidget(self.textEdit_10, 1, 1, 1, 1)
+
+        self.pushButton_9 = QPushButton(self.layoutWidget1)
+        self.pushButton_9.setObjectName(u"pushButton_9")
+
+        self.gridLayout_3.addWidget(self.pushButton_9, 2, 0, 1, 1)
+
+        self.textEdit_8 = QTextEdit(self.layoutWidget1)
+        self.textEdit_8.setObjectName(u"textEdit_8")
+        self.textEdit_8.setMaximumSize(QSize(16777215, 30))
+
+        self.gridLayout_3.addWidget(self.textEdit_8, 2, 1, 1, 1)
+
+        self.splitter.addWidget(self.layoutWidget1)
+        self.pushButton_2 = QPushButton(self.splitter)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.splitter.addWidget(self.pushButton_2)
+        self.frame_9 = QFrame(self.frame_7)
+        self.frame_9.setObjectName(u"frame_9")
+        self.frame_9.setGeometry(QRect(-10, 240, 498, 233))
+        self.frame_9.setFrameShape(QFrame.StyledPanel)
+        self.frame_9.setFrameShadow(QFrame.Raised)
+
+        self.verticalLayout_24.addWidget(self.frame_7)
+
+
+        self.horizontalLayout_6.addWidget(self.FPencryptionBox)
+
+        self.FPdecryptionBox = QGroupBox(self.frame_8)
+        self.FPdecryptionBox.setObjectName(u"FPdecryptionBox")
+        self.verticalLayout_25 = QVBoxLayout(self.FPdecryptionBox)
+        self.verticalLayout_25.setObjectName(u"verticalLayout_25")
+        self.frame_10 = QFrame(self.FPdecryptionBox)
+        self.frame_10.setObjectName(u"frame_10")
+        self.frame_10.setFrameShape(QFrame.StyledPanel)
+        self.frame_10.setFrameShadow(QFrame.Raised)
+        self.splitter_2 = QSplitter(self.frame_10)
+        self.splitter_2.setObjectName(u"splitter_2")
+        self.splitter_2.setGeometry(QRect(90, 10, 341, 203))
+        self.splitter_2.setOrientation(Qt.Vertical)
+        self.layoutWidget2 = QWidget(self.splitter_2)
+        self.layoutWidget2.setObjectName(u"layoutWidget2")
+        self.gridLayout_5 = QGridLayout(self.layoutWidget2)
+        self.gridLayout_5.setObjectName(u"gridLayout_5")
+        self.gridLayout_5.setContentsMargins(0, 0, 0, 0)
+        self.label_9 = QLabel(self.layoutWidget2)
+        self.label_9.setObjectName(u"label_9")
+
+        self.gridLayout_5.addWidget(self.label_9, 0, 0, 1, 1)
+
+        self.textEdit_11 = QTextEdit(self.layoutWidget2)
+        self.textEdit_11.setObjectName(u"textEdit_11")
+        self.textEdit_11.setMaximumSize(QSize(16777215, 30))
+
+        self.gridLayout_5.addWidget(self.textEdit_11, 1, 0, 1, 1)
+
+        self.label_8 = QLabel(self.layoutWidget2)
+        self.label_8.setObjectName(u"label_8")
+
+        self.gridLayout_5.addWidget(self.label_8, 2, 0, 1, 1)
+
+        self.textEdit_5 = QTextEdit(self.layoutWidget2)
+        self.textEdit_5.setObjectName(u"textEdit_5")
+        self.textEdit_5.setMaximumSize(QSize(16777215, 30))
+
+        self.gridLayout_5.addWidget(self.textEdit_5, 3, 0, 1, 1)
+
+        self.splitter_2.addWidget(self.layoutWidget2)
+        self.layoutWidget_2 = QWidget(self.splitter_2)
+        self.layoutWidget_2.setObjectName(u"layoutWidget_2")
+        self.gridLayout_6 = QGridLayout(self.layoutWidget_2)
+        self.gridLayout_6.setObjectName(u"gridLayout_6")
+        self.gridLayout_6.setContentsMargins(0, 0, 0, 0)
+        self.pushButton_6 = QPushButton(self.layoutWidget_2)
+        self.pushButton_6.setObjectName(u"pushButton_6")
+        self.pushButton_6.setMaximumSize(QSize(16777215, 30))
+
+        self.gridLayout_6.addWidget(self.pushButton_6, 0, 0, 1, 1)
+
+        self.textEdit_6 = QTextEdit(self.layoutWidget_2)
+        self.textEdit_6.setObjectName(u"textEdit_6")
+        self.textEdit_6.setMaximumSize(QSize(16777215, 30))
+
+        self.gridLayout_6.addWidget(self.textEdit_6, 0, 1, 1, 1)
+
+        self.pushButton_7 = QPushButton(self.layoutWidget_2)
+        self.pushButton_7.setObjectName(u"pushButton_7")
+        self.pushButton_7.setMaximumSize(QSize(16777215, 30))
+
+        self.gridLayout_6.addWidget(self.pushButton_7, 1, 0, 1, 1)
+
+        self.textEdit_7 = QTextEdit(self.layoutWidget_2)
+        self.textEdit_7.setObjectName(u"textEdit_7")
+        self.textEdit_7.setMaximumSize(QSize(16777215, 30))
+
+        self.gridLayout_6.addWidget(self.textEdit_7, 1, 1, 1, 1)
+
+        self.splitter_2.addWidget(self.layoutWidget_2)
+        self.pushButton_3 = QPushButton(self.splitter_2)
+        self.pushButton_3.setObjectName(u"pushButton_3")
+        self.splitter_2.addWidget(self.pushButton_3)
+
+        self.verticalLayout_25.addWidget(self.frame_10)
+
+        self.frame_11 = QFrame(self.FPdecryptionBox)
+        self.frame_11.setObjectName(u"frame_11")
+        self.frame_11.setFrameShape(QFrame.StyledPanel)
+        self.frame_11.setFrameShadow(QFrame.Raised)
+
+        self.verticalLayout_25.addWidget(self.frame_11)
+
+
+        self.horizontalLayout_6.addWidget(self.FPdecryptionBox)
+
+
+        self.verticalLayout_23.addWidget(self.frame_8)
+
+        self.stackedWidget.addWidget(self.fog_project)
         self.youtube_downloader = QWidget()
         self.youtube_downloader.setObjectName(u"youtube_downloader")
         self.youtube_downloader.setEnabled(True)
@@ -1574,6 +1755,14 @@ class Ui_MainWindow(object):
         self.frame_content_wid_5.setFrameShadow(QFrame.Raised)
         self.gridLayout_8 = QGridLayout(self.frame_content_wid_5)
         self.gridLayout_8.setObjectName(u"gridLayout_8")
+        self.ytdlURLField = QLineEdit(self.frame_content_wid_5)
+        self.ytdlURLField.setObjectName(u"ytdlURLField")
+        self.ytdlURLField.setMinimumSize(QSize(0, 25))
+        self.ytdlURLField.setMaximumSize(QSize(240, 16777215))
+        self.ytdlURLField.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+
+        self.gridLayout_8.addWidget(self.ytdlURLField, 1, 1, 1, 1)
+
         self.ytdlDownloadBtn = QPushButton(self.frame_content_wid_5)
         self.ytdlDownloadBtn.setObjectName(u"ytdlDownloadBtn")
         self.ytdlDownloadBtn.setMinimumSize(QSize(0, 30))
@@ -1583,7 +1772,30 @@ class Ui_MainWindow(object):
         icon6.addFile(u":/icons/images/icons/cil-data-transfer-down.png", QSize(), QIcon.Normal, QIcon.Off)
         self.ytdlDownloadBtn.setIcon(icon6)
 
-        self.gridLayout_8.addWidget(self.ytdlDownloadBtn, 2, 1, 1, 1)
+        self.gridLayout_8.addWidget(self.ytdlDownloadBtn, 3, 1, 1, 1)
+
+        self.frame_4 = QFrame(self.frame_content_wid_5)
+        self.frame_4.setObjectName(u"frame_4")
+        self.frame_4.setFrameShape(QFrame.StyledPanel)
+        self.frame_4.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_21 = QVBoxLayout(self.frame_4)
+        self.verticalLayout_21.setObjectName(u"verticalLayout_21")
+        self.ytdlOutFolderLabel = QLabel(self.frame_4)
+        self.ytdlOutFolderLabel.setObjectName(u"ytdlOutFolderLabel")
+        self.ytdlOutFolderLabel.setMinimumSize(QSize(0, 25))
+        self.ytdlOutFolderLabel.setWordWrap(False)
+
+        self.verticalLayout_21.addWidget(self.ytdlOutFolderLabel)
+
+
+        self.gridLayout_8.addWidget(self.frame_4, 0, 2, 1, 1)
+
+        self.frame_5 = QFrame(self.frame_content_wid_5)
+        self.frame_5.setObjectName(u"frame_5")
+        self.frame_5.setFrameShape(QFrame.StyledPanel)
+        self.frame_5.setFrameShadow(QFrame.Raised)
+
+        self.gridLayout_8.addWidget(self.frame_5, 0, 0, 1, 1)
 
         self.ytdlOpenFolderBtn = QPushButton(self.frame_content_wid_5)
         self.ytdlOpenFolderBtn.setObjectName(u"ytdlOpenFolderBtn")
@@ -1594,27 +1806,11 @@ class Ui_MainWindow(object):
 
         self.gridLayout_8.addWidget(self.ytdlOpenFolderBtn, 0, 1, 1, 1)
 
-        self.ytdlURLField = QLineEdit(self.frame_content_wid_5)
-        self.ytdlURLField.setObjectName(u"ytdlURLField")
-        self.ytdlURLField.setMinimumSize(QSize(0, 25))
-        self.ytdlURLField.setMaximumSize(QSize(240, 16777215))
-        self.ytdlURLField.setStyleSheet(u"background-color: rgb(33, 37, 43);")
+        self.ytdlAvailResList = QComboBox(self.frame_content_wid_5)
+        self.ytdlAvailResList.addItem("")
+        self.ytdlAvailResList.setObjectName(u"ytdlAvailResList")
 
-        self.gridLayout_8.addWidget(self.ytdlURLField, 1, 1, 1, 1)
-
-        self.frame_4 = QFrame(self.frame_content_wid_5)
-        self.frame_4.setObjectName(u"frame_4")
-        self.frame_4.setFrameShape(QFrame.StyledPanel)
-        self.frame_4.setFrameShadow(QFrame.Raised)
-
-        self.gridLayout_8.addWidget(self.frame_4, 0, 2, 1, 1)
-
-        self.frame_5 = QFrame(self.frame_content_wid_5)
-        self.frame_5.setObjectName(u"frame_5")
-        self.frame_5.setFrameShape(QFrame.StyledPanel)
-        self.frame_5.setFrameShadow(QFrame.Raised)
-
-        self.gridLayout_8.addWidget(self.frame_5, 0, 0, 1, 1)
+        self.gridLayout_8.addWidget(self.ytdlAvailResList, 2, 1, 1, 1)
 
 
         self.gridLayout_7.addWidget(self.frame_content_wid_5, 1, 0, 1, 1)
@@ -1669,16 +1865,16 @@ class Ui_MainWindow(object):
 
         self.gridLayout_9.addWidget(self.label_4, 2, 0, 1, 1)
 
+        self.label_5 = QLabel(self.frame_2)
+        self.label_5.setObjectName(u"label_5")
+
+        self.gridLayout_9.addWidget(self.label_5, 5, 0, 1, 1, Qt.AlignTop)
+
         self.ytdlDescriptionLabel = QPlainTextEdit(self.frame_2)
         self.ytdlDescriptionLabel.setObjectName(u"ytdlDescriptionLabel")
         self.ytdlDescriptionLabel.setReadOnly(True)
 
         self.gridLayout_9.addWidget(self.ytdlDescriptionLabel, 5, 1, 1, 1)
-
-        self.label_5 = QLabel(self.frame_2)
-        self.label_5.setObjectName(u"label_5")
-
-        self.gridLayout_9.addWidget(self.label_5, 5, 0, 1, 1, Qt.AlignTop)
 
 
         self.verticalLayout_45.addWidget(self.frame_2, 0, Qt.AlignTop)
@@ -1804,10 +2000,6 @@ class Ui_MainWindow(object):
         self.creditsLabel = QLabel(self.bottomBar)
         self.creditsLabel.setObjectName(u"creditsLabel")
         self.creditsLabel.setMaximumSize(QSize(16777215, 16))
-        font5 = QFont()
-        font5.setFamilies([u"Segoe UI"])
-        font5.setBold(False)
-        font5.setItalic(False)
         self.creditsLabel.setFont(font5)
         self.creditsLabel.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
@@ -1838,13 +2030,13 @@ class Ui_MainWindow(object):
         self.appLayout.addWidget(self.contentBox)
 
 
-        self.horizontalLayout_6.addWidget(self.bgApp)
+        self.verticalLayout_22.addWidget(self.bgApp)
 
         MainWindow.setCentralWidget(self.styleSheet)
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -1857,9 +2049,7 @@ class Ui_MainWindow(object):
         self.toggleButton.setText(QCoreApplication.translate("MainWindow", u"Hide", None))
         self.btn_home.setText(QCoreApplication.translate("MainWindow", u"Home", None))
         self.btn_widgets.setText(QCoreApplication.translate("MainWindow", u"Widgets", None))
-        self.btn_new.setText(QCoreApplication.translate("MainWindow", u"New", None))
-        self.btn_save.setText(QCoreApplication.translate("MainWindow", u"Save", None))
-        self.btn_exit.setText(QCoreApplication.translate("MainWindow", u"Exit", None))
+        self.btn_tools.setText(QCoreApplication.translate("MainWindow", u"New", None))
         self.toggleLeftBox.setText(QCoreApplication.translate("MainWindow", u"Left Box", None))
         self.extraLabel.setText(QCoreApplication.translate("MainWindow", u"Left Box", None))
 #if QT_CONFIG(tooltip)
@@ -1979,10 +2169,31 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem23.setText(QCoreApplication.translate("MainWindow", u"Line", None));
         self.tableWidget.setSortingEnabled(__sortingEnabled)
 
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"FOG PROJECT", None))
+        self.FPencryptionBox.setTitle(QCoreApplication.translate("MainWindow", u"Encryption", None))
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"Key :", None))
+        self.pushButton_10.setText(QCoreApplication.translate("MainWindow", u"Select file", None))
+        self.textEdit_9.setPlaceholderText(QCoreApplication.translate("MainWindow", u"ZIp file to encrypt", None))
+        self.pushButton_8.setText(QCoreApplication.translate("MainWindow", u"Select folder", None))
+        self.textEdit_10.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Input Folder", None))
+        self.pushButton_9.setText(QCoreApplication.translate("MainWindow", u"Select folder", None))
+        self.textEdit_8.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Output Folder", None))
+        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"ENCRYPT", None))
+        self.FPdecryptionBox.setTitle(QCoreApplication.translate("MainWindow", u"Decryption", None))
+        self.label_9.setText(QCoreApplication.translate("MainWindow", u"Key :", None))
+        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Size :", None))
+        self.pushButton_6.setText(QCoreApplication.translate("MainWindow", u"Select folder", None))
+        self.textEdit_6.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Input Folder", None))
+        self.pushButton_7.setText(QCoreApplication.translate("MainWindow", u"Select folder", None))
+        self.textEdit_7.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Output Folder", None))
+        self.pushButton_3.setText(QCoreApplication.translate("MainWindow", u"DECRYPT", None))
         self.labelBoxBlenderInstalation_5.setText(QCoreApplication.translate("MainWindow", u"YOUTUBE VIDEO DOWNLOADER", None))
-        self.ytdlDownloadBtn.setText(QCoreApplication.translate("MainWindow", u"Download", None))
-        self.ytdlOpenFolderBtn.setText(QCoreApplication.translate("MainWindow", u"Select Output Folder", None))
         self.ytdlURLField.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Enter a Youtube URL", None))
+        self.ytdlDownloadBtn.setText(QCoreApplication.translate("MainWindow", u"Download", None))
+        self.ytdlOutFolderLabel.setText(QCoreApplication.translate("MainWindow", u"No output folder selected", None))
+        self.ytdlOpenFolderBtn.setText(QCoreApplication.translate("MainWindow", u"Select Output Folder", None))
+        self.ytdlAvailResList.setItemText(0, QCoreApplication.translate("MainWindow", u"Select Resolution", None))
+
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Title :", None))
         self.ytdlResolutionLabel.setText(QCoreApplication.translate("MainWindow", u"None", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Quality:", None))
@@ -1991,8 +2202,8 @@ class Ui_MainWindow(object):
         self.ytdlTitleLabel.setText(QCoreApplication.translate("MainWindow", u"None", None))
         self.ytdlSizeLabel.setText(QCoreApplication.translate("MainWindow", u"None", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"Size:", None))
-        self.ytdlDescriptionLabel.setPlainText(QCoreApplication.translate("MainWindow", u"None", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"Description: ", None))
+        self.ytdlDescriptionLabel.setPlainText(QCoreApplication.translate("MainWindow", u"None", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"NEW PAGE TEST", None))
         self.btn_message.setText(QCoreApplication.translate("MainWindow", u"Message", None))
         self.btn_print.setText(QCoreApplication.translate("MainWindow", u"Print", None))
