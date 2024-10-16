@@ -6,7 +6,7 @@
 This program is full of python tools ! Feel free to discover them !
 To use the program, first install requirements :
 ```
-pip install requirements.txt
+pip install -r requirements.txt
 ```
 
 Then run the program :
